@@ -51,7 +51,6 @@ def get_one(name):
 def get_accueil():
     random_indices = random.sample(range(total_count), 3)
     random_items = collection.find().limit(3).skip(random_indices[0])
-    print(random_indices)
 
     data = {
         str(item["key"]): {
