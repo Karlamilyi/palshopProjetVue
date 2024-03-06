@@ -4,6 +4,7 @@ import home from '../views/home.vue'
 import Panier from '../views/panier.vue'
 import pal from '../views/pal.vue'
 import login from '../views/login.vue'
+import catalogue from '../views/catalogue.vue'
 import signup from '../views/signup.vue'
 import Notfound from '../views/Notfound.vue'
 
@@ -25,6 +26,11 @@ const routes =[
         path:'/panier/:id',
         name:'panier',
         component:Panier,
+    },
+    {
+        path:'/catalogue',
+        name:'catalogue',
+        component: catalogue,
     },
     {
         path:'/pal/:id',
