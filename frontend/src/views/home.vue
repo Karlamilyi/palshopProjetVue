@@ -1,7 +1,9 @@
 <template>
-    
+    <Header>
+        </Header>
 <h1>test</h1>
-
+<Footer>
+</Footer>
 </template>
 
 <script>

@@ -1,56 +1,57 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import home from '../views/home.vue'
-import Panier from '../views/panier.vue'
-import pal from '../views/pal.vue'
-import login from '../views/login.vue'
-import catalogue from '../views/catalogue.vue'
-import signup from '../views/signup.vue'
-import Notfound from '../views/Notfound.vue'
 
-Vue.use(VueRouter)
+import { createApp } from 'vue';
+import App from '../App.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/home.vue';
+import Panier from '../views/panier.vue';
+import Pal from '../views/pal.vue';
+import Login from '../views/login.vue';
+import Catalogue from '../views/catalogue.vue';
+import Signup from '../views/signup.vue';
+import NotFound from '../views/Notfound.vue';
 
-const routes =[
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: '/panier/:id',
+    name: 'Panier',
+    component: Panier,
+  },
+  {
+    path: '/catalogue',
+    name: 'Catalogue',
+    component: Catalogue,
+  },
+  {
+    path: '/pal/:id',
+    name: 'Pal',
+    component: Pal,
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: Signup,
+  },
+  {
+    path: '/:catchAll(.*)',
+    component: NotFound,
+  },
+];
 
-    {
-        path:'/',
-        name:'Home',
-        component:home,
-    },
-    {
-        path:'/login',
-        name:'login',
-        component:login,
-    },
-    {
-        path:'/panier/:id',
-        name:'panier',
-        component:Panier,
-    },
-    {
-        path:'/catalogue',
-        name:'catalogue',
-        component: catalogue,
-    },
-    {
-        path:'/pal/:id',
-        name:'pal',
-        component:pal,
-    },
-    {
-        path:'/signup',
-        name:'singup',
-        component:signup,
-    },
-    {
-        path:'*',
-        component:Notfound,
-    }
-]
-
-const router = new VueRouter({
-    mode:'history',
-    base: process.env.BASE_URL,
-    routes
-})
-export default router
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+export default router;
+const app = createApp(App);
+app.use(router);
+app.mount('#app');
