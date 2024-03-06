@@ -1,6 +1,6 @@
 <template>
     
-
+<h1>test</h1>
 
 </template>
 
@@ -14,7 +14,7 @@
             Footer
         }
     }
-
+    console.log("tarace");
 </script>
 
 <style scoped>
