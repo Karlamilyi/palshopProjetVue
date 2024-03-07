@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from config import db,Pals
+from config import Pals
 
 catalogRoutes = Blueprint("catalogRoutes", __name__)
 

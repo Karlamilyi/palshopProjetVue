@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_user, login_required, logout_user
-from config import db, Login
+from config import Login
 from passlib.hash import pbkdf2_sha256
 loginRoutes = Blueprint("loginRoutes", __name__)
 
