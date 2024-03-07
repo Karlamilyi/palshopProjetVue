@@ -34,7 +34,7 @@
         max-width: 1280px;
         display: flex;
         flex-wrap: wrap;
-        padding: 1em;
+        padding: 0.8em;
         h1 {
             font-weight: 900;
         }
