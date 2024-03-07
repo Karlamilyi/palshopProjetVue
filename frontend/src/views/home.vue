@@ -1,10 +1,7 @@
 <template>
-    <Header>
-        </Header>
-<h1>test</h1>
-<Footer>
-bite
-</Footer>
+    <Header></Header>
+    <h1>test</h1>
+    <Footer></Footer>
 </template>
 
 <script>
@@ -24,6 +21,7 @@ bite
     * {
         margin: 0;
         padding: 0;
+        background-color:#FFEDE1;
     }
 
 </style>

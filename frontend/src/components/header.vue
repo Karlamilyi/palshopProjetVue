@@ -11,7 +11,7 @@
     </header>
 </template>
 
-<style>
+<style scoped>
     * {
         margin: 0;
         padding: 0;
@@ -24,11 +24,14 @@
         flex-wrap: wrap;
         background-color: #39487E;
         padding: 1em;
+        h1 {
+            font-weight: 900;
+        }
         ul {
             margin: auto 0 auto 50px;
             display: flex;
             a {
-                font-weight: 100;
+                font-weight: 200;
                 text-decoration: none;
                 margin: 0 50px 0 20px;
                 transition: ease-in-out;
@@ -40,6 +43,7 @@
             }
             a:hover{
                 transform: scale(1.05);
+                font-weight: 300;
             }
         }
     }
