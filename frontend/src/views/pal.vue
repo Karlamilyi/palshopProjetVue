@@ -48,42 +48,46 @@ export default {
 };
 </script>
   
-  <style scoped>
-  * {
+<style scoped>
+* {
   margin: 0;
   padding: 0;
   background-color: #FFEDE1;
 }
-  
-  .pal-page {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .pal-details {
-    display: flex; 
-    align-items: center; 
-    text-align: left;
-    margin-bottom: 20px;
-  }
-  
-  .pal-info {
-    margin-right: 20px; 
-    margin-left: 20px;
-  }
-  
-  .pal-image {
-    order: -1;
-  }
-  
-  img {
-    max-width: 100%;
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
-    background-color: #819ECC;
-  }
-  </style>
+
+.pal-page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.pal-details {
+  display: flex;
+  justify-content: flex-end; 
+  text-align: left; 
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 70%; 
+}
+
+.pal-info {
+  margin-right: 20px;
+  width: 30%; 
+  margin-top: 10%;
+  margin-left: 10px;
+}
+
+.pal-image {
+  order: -1;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #819ECC;
+}
+</style>
