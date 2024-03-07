@@ -4,27 +4,30 @@
         <div class="loginpage">
             <div class="login-form">
                 <h1>Se connecter</h1>
-                <p>Adresse mail</p>
-                <input type="email" id="email" required/><br>
-                <p>Mot de passe</p>
-                <input id="password" name="password" required/><br>
-                <button type="button" onclick="">Se connecter</button>
+                <form @submit.prevent="login">
+                    <p>Adresse mail</p>
+                    <input type="email" v-model="loginData.email" required/><br>
+                    <p>Mot de passe</p>
+                    <input id="password" v-model="loginData.password" required/><br>
+                    <button type="submit">Se connecter</button>
+                    <p id="verifError" v-if="loginError" class="error-message">{{ loginError }}</p>
+                </form>
             </div>
             <div class="separator"></div>
             <div class="signup-form">
                 <h1>S'inscrire</h1>
-                <p>Adresse mail</p>
-                <input type="email" id="email" required/><br>
-                <p>Mot de passe</p>
-                <input id="password" name="password" required/><br>
-                <button type="button" onclick="">S'inscrire</button>
+                <form @submit.prevent="signup">
+                    <p>Adresse mail</p>
+                    <input type="email" v-model="signupData.email" required/><br>
+                    <p>Mot de passe</p>
+                    <input id="password" v-model="signupData.password" required/><br>
+                    <button type="submit">S'inscrire</button>
+                    <p id="verifError" v-if="signupError" class="error-message">{{ signupError }}</p>
+                </form>
+                
             </div>
         </div>
-
-        
     </div>
-
-
     <Footer></Footer>
 </template>
 
@@ -32,11 +35,62 @@
 <script>
     import Header from "./../components/header.vue";
     import Footer from "./../components/footer.vue";
+    import axios from 'axios';
+
 
     export default {
         components: {
             Header,
             Footer
+        },
+        data() {
+            return {
+            loginData: {
+                email: '',
+                password: ''
+            },
+            loginError: '',
+            signupData: {
+                email: '',
+                password: ''
+            },
+            signupError: ''
+            };
+        },
+        methods: {
+            login() {
+                axios.post('http://127.0.0.1:5000/login', this.loginData)
+                    .then(response => {
+                    console.log('Login successful', response.data);
+                    sessionStorage.setItem('loggedIn', true);
+                    this.$router.push('/');
+                    })
+                    .catch(error => {
+                    console.error('Erreur lors de la connexion', error);
+                    if (error.response.status === 404) {
+                        this.loginError = 'Utilisateur non trouvé.';
+                    } else if (error.response.status === 400) {
+                        this.loginError = 'Email ou mot de passe incorrect.';
+                    } else {
+                        this.loginError = 'Une erreur s\'est produite.';
+                    }
+                    });
+            },
+            signup() {
+                axios.post('http://127.0.0.1:5000/register', this.signupData)
+                    .then(response => {
+                    console.log('Signup successful', response.data);
+                    this.login();
+                    })
+                    .catch(error => {
+                    console.error('Erreur lors de l\'inscription', error);
+                    if (error.response.status === 400) {
+                        this.signupError = 'L\'utilisateur existe déjà.';
+                    } else {
+                        this.signupError = 'Une erreur s\'est produite.';
+                    }
+                    });
+            }
         }
     }
 </script>
@@ -59,6 +113,9 @@
             display: flex;
             flex-wrap: wrap;
             color: #39487E;
+            form {
+                width: 100%;
+            }
             .login-form, .signup-form {
                 justify-content: center;
                 padding: 5em 0;
@@ -101,6 +158,10 @@
                 button:hover{
                     color: white;
                     background-color: #39487E;
+                }
+                #verifError{
+                    padding-top: 10px;
+                    margin: auto;
                 }
             }
             .separator {
