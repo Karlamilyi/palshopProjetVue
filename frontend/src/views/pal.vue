@@ -7,6 +7,8 @@
         <div class="pal-info">
           <h2>Nom: {{ pal.name }}</h2>
           <p>Prix: {{ pal.price }}</p>
+          <p>Description: {{ pal.description }}</p>
+          <p>Utilité: {{ pal.suitability }}</p>
         </div>
         <div class="pal-image">
           <img :src="pal.image" :alt="pal.name" style="display: block; margin: 0 auto;">
@@ -18,43 +20,40 @@
 </template>
 
   
-  <script>
-  import Header from "./../components/header.vue";
-  import Footer from "./../components/footer.vue";
-  import axios from "axios";
-  
-  export default {
-    components: {
-      Header,
-      Footer
-    },
-    data() {
-      return {
-        palData: []
-      };
-    },
-    created() {
-      const palKey = this.$route.params.key;
+<script>
+import Header from "./../components/header.vue";
+import Footer from "./../components/footer.vue";
+import axios from "axios";
 
-      axios.get(`http://127.0.0.1:5000/pals/${palKey}`)
-        .then(response => {
-          console.log('Données du PAL récupérées avec succès', response.data);
-          this.palData = response.data;
-          console.log(response.data);
-        })
-        .catch(error => {
-          console.error('Erreur lors de la récupération des données du PAL', error);
-        });
-    }
-  }
-  </script>
+export default {
+  components: {
+    Header,
+    Footer
+  },
+  data() {
+    return {
+      pal: null
+    };
+  },
+  mounted() {
+    const palId = this.$route.params.id;
+    axios.get('http://127.0.0.1:5000/pals/' + palId) 
+      .then(response => {
+        this.pal = response.data; 
+      })
+      .catch(error => {
+        console.error('Une erreur s\'est produite lors de la récupération des données du Pal', error);
+      });
+  },
+};
+</script>
   
   <style scoped>
-    * {
-      margin: 0;
-      padding: 0;
-      background-color: #FFEDE1;
-    }
+  * {
+  margin: 0;
+  padding: 0;
+  background-color: #FFEDE1;
+}
   
   .pal-page {
     min-height: 100%;
