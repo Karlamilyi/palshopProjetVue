@@ -27,6 +27,7 @@ def get_one(name):
                 "name": data["name"],
                 "price": data["price"],
                 "image": data["image"],
+                
             }
         }
         return jsonify(data)
