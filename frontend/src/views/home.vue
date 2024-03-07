@@ -43,7 +43,7 @@
         </div>
         <div class="separator"></div>
         <div class="contact-form">
-            <form>
+            <form @submit.prevent="contact">
                 <input type="email" id="email" required placeholder="Votre adresse mail" />
                 <textarea id="message" name="message" placeholder="Ecrivez votre message ici..." rows="5" cols="33"></textarea>
                 <button type="button" onclick="">Envoyer</button>
@@ -76,8 +76,18 @@
                 .catch(error => {
                     console.error("Erreur lors de la récupération des données:", error);
                 });
-            }
-        }
+    },
+        contact() {
+            axios.post("http://127.0.0.1:5000/contact", this.contactData)
+                .then(response => {
+                    console.log("Message envoyé", response.data);
+                    this.$router.push("/");
+                })
+                .catch(error => {
+                    console.error("Erreur lors de l'envoi du message", error);
+                });
+    }
+    };
         
 </script>
 
