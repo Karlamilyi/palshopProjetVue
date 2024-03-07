@@ -1,6 +1,5 @@
 from flask import Flask
 from middleware import configure_middlewares
-from error import configure_error_handlers
 from routes.catalogRoutes import catalogRoutes
 from routes.homeRoutes import homeRoutes
 from routes.loginRoutes import loginRoutes
@@ -8,13 +7,8 @@ from routes.loginRoutes import loginRoutes
 
 app = Flask(__name__)
 
-# Initialize database connection
-
 # Register middleware
 configure_middlewares(app)
-
-# Register error handlers
-configure_error_handlers(app)
 
 
 # Register routes

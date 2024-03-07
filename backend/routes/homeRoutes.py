@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from config import db,Pals
+from config import Pals
 import random
 
 homeRoutes = Blueprint("homeRoutes", __name__)
