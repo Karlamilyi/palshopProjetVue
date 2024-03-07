@@ -5,7 +5,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/home.vue';
 import Panier from '../views/panier.vue';
 import Pal from '../views/pal.vue';
-import Login from '../views/login.vue';
 import Catalogue from '../views/catalogue.vue';
 import Signup from '../views/signup.vue';
 import NotFound from '../views/Notfound.vue';
@@ -15,11 +14,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
   },
   {
     path: '/panier/:id',
