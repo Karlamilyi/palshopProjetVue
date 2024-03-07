@@ -7,6 +7,8 @@
         <div class="pal-info">
           <h2>Nom: {{ pal.name }}</h2>
           <p>Prix: {{ pal.price }}</p>
+          <p>Description: {{ pal.description }}</p>
+          <p>Utilité: {{ pal.suitability }}</p>
         </div>
         <div class="pal-image">
           <img :src="pal.image" :alt="pal.name" style="display: block; margin: 0 auto;">
@@ -18,34 +20,33 @@
 </template>
 
   
-  <script>
-  import Header from "./../components/header.vue";
-  import Footer from "./../components/footer.vue";
-  import axios from "axios";
-  
-  export default {
-    components: {
-      Header,
-      Footer
-    },
-    data() {
-      return {
-        pal: null
-      };
-    },
-    mounted() {
-        const palId = this.$route.params.id;
-        axios.get('http://127.0.0.1:5000/pals')
-  .then(response => {
-    const key = palId; 
-    this.pal = response.data[key];
-  })
-  .catch(error => {
-    console.error('Une erreur s\'est produite lors de la récupération des données du Pal', error);
-  });
-    },
-  };
-  </script>
+<script>
+import Header from "./../components/header.vue";
+import Footer from "./../components/footer.vue";
+import axios from "axios";
+
+export default {
+  components: {
+    Header,
+    Footer
+  },
+  data() {
+    return {
+      pal: null
+    };
+  },
+  mounted() {
+    const palId = this.$route.params.id;
+    axios.get('http://127.0.0.1:5000/pals/' + palId) 
+      .then(response => {
+        this.pal = response.data; 
+      })
+      .catch(error => {
+        console.error('Une erreur s\'est produite lors de la récupération des données du Pal', error);
+      });
+  },
+};
+</script>
   
   <style scoped>
   * {
