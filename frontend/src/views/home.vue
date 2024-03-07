@@ -6,11 +6,12 @@
     </div>
 
     <div class="selection-container">
-        <div v-if="loading">Chargement en cours...</div>
-        <div v-else>
-          <div v-for="(item, key) in items" :key="key">
-            <img :src="item.image" alt="Image" />
-          </div>
+        <div class="selection">
+            <h2>Les pals du moment</h2>
+            <div v-for="(item, key) in items" :key="key">
+                <img :src="item.image"/>
+            </div>
+            <a href="/Catalogue">En découvrir plus</a>
         </div>
     </div>
 
@@ -28,7 +29,7 @@
     <div class="catalogue-button-container">
         <div class="catalogue-button">
             <h2>Découvrez toute notre sélection de pals →</h2>
-            <button href="/Catalogue">Notre catalogue</button>
+            <a href="Catalogue">Notre catalogue</a>
         </div>
     </div>
 
@@ -55,6 +56,7 @@
 <script>
     import Header from "./../components/header.vue";
     import Footer from "./../components/footer.vue";
+    import axios from "axios";
 
     export default {
         components: {
@@ -64,27 +66,18 @@
         data() {
             return {
             items: [],
-            loading: true
             };
         },
         mounted() {
-            this.fetchData();
-        },
-        methods: {
-            fetchData() {
-            fetch("/accueil")
-                .then(response => response.json())
-                .then(data => {
-                this.items = data;
-                this.loading = false;
+            axios.get("http://127.0.0.1:5000/accueil")
+                .then(response => {
+                    this.items = response.data;
                 })
                 .catch(error => {
-                console.error("Erreur lors de la récupération des données:", error);
-                this.loading = false;
+                    console.error("Erreur lors de la récupération des données:", error);
                 });
             }
         }
-    };
         
 </script>
 
@@ -117,6 +110,51 @@
             font-weight: 200;
         }
     }
+    .selection-container {
+        background-color: #FFEDE1;
+    }
+    .selection {
+        max-width: 1280px;
+        padding-bottom: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        justify-content: space-around;
+        h2 {
+            width: 100%;
+            font-size: 45px;
+            color: #39487E;
+            padding: 1em;
+        }
+        div{
+            width: 30%;
+            text-align: center;
+            margin-bottom: 30px;
+            img {
+                background-color: #819ECC;
+                border-radius: 10px;
+                width: 60%;
+                box-shadow: 1px 5px 20px black;
+            }
+        }
+        a {
+            width: 20%;
+            text-align: center;
+            text-decoration: none;
+            padding: .7em 0;
+            border-radius: 30px;
+            background-color: #39487E;
+            color: white;
+            border: 2px solid #39487E;
+            margin: auto;
+            transition-duration: .3s;
+        }
+        a:hover {
+            color: #39487E;
+            background-color: white;
+        }
+    }
+
     .moreinfos-container {
         background-color: #39487E;
         .moreinfos{
@@ -170,23 +208,25 @@
             display: flex;
             flex-wrap: wrap;
             margin: auto;
+            justify-content: center;
             h2 {
                 color: white;
-                font-size: 40px;
+                font-size: 35px;
                 font-weight: 500;
                 margin-right: 20px;
             }
-            button {
-                border-radius: 100px;
+            a {
+                border-radius: 40px;
+                text-decoration: none;
                 border: 2px solid #39487E;
-                padding: 0 2.5em;
+                padding: 1em;
                 background-color: white;
                 color: #39487E;
                 font-weight: 600;
                 transition-duration: 0.5s;
                 font-size: 16px;
             }
-            button:hover {
+            a:hover {
                 background-color: #39487E;
                 color: white;
             }
