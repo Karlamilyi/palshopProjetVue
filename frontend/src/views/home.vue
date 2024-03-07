@@ -4,6 +4,16 @@
         <h1>PALSHOP</h1>
         <h2><strong>C</strong>liquez, <strong>A</strong>chetez, <strong>D</strong>ominez</h2>
     </div>
+
+    <div class="selection-container">
+        <div v-if="loading">Chargement en cours...</div>
+        <div v-else>
+          <div v-for="(item, key) in items" :key="key">
+            <img :src="item.image" alt="Image" />
+          </div>
+        </div>
+    </div>
+
     <div class="moreinfos-container">
         <div class="moreinfos">
             <h2>Trois passionnés cherchant à révolutionner le marché</h2>
@@ -14,12 +24,14 @@
             <img src="../../public/img/bg2homepage.jpg">
         </div>
     </div>
+
     <div class="catalogue-button-container">
         <div class="catalogue-button">
             <h2>Découvrez toute notre sélection de pals →</h2>
             <button href="/Catalogue">Notre catalogue</button>
         </div>
     </div>
+
     <div class="contact-form-container">
         <h2>Une question ? Une réclamation ? C'est ici que ca se passe</h2>
         <div class="contact-infos">
@@ -48,9 +60,34 @@
         components: {
             Header,
             Footer
+        },
+        data() {
+            return {
+            items: [],
+            loading: true
+            };
+        },
+        mounted() {
+            this.fetchData();
+        },
+        methods: {
+            fetchData() {
+            fetch("/accueil")
+                .then(response => response.json())
+                .then(data => {
+                this.items = data;
+                this.loading = false;
+                })
+                .catch(error => {
+                console.error("Erreur lors de la récupération des données:", error);
+                this.loading = false;
+                });
+            }
         }
-    }
+    };
+        
 </script>
+
 
 <style>
     * {
