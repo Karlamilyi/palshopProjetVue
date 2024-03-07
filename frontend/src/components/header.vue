@@ -1,13 +1,17 @@
 <template>
     <header>
-        <div class="navbar">
-            <h1>PALSHOP</h1>
-            <ul>
-                <a href='/catalogue'>Catalogue</a>
-                <a href='/panier'>Panier</a>
-                <a id="connexion" href='/login'>Connexion / Inscription</a>
-            </ul>
+        <div class="navbar-container">
+            <div class="navbar">
+                <h1>PALSHOP</h1>
+                <ul>
+                    <a href='/catalogue'>Catalogue</a>
+                    <a href='/panier'>Panier</a>
+                    <a id="connexion" href='/login'>Connexion / Inscription</a>
+                </ul>
+            </div>
         </div>
+
+        
     </header>
 </template>
 
@@ -18,11 +22,18 @@
         font-family: "Poppins", sans-serif;
         color: white;
     }
-
-    .navbar {
+    .navbar-container {
         display: flex;
         flex-wrap: wrap;
         background-color: #39487E;
+        margin: auto;
+    }
+    .navbar {
+        margin: auto;
+        width: 100%;
+        max-width: 1280px;
+        display: flex;
+        flex-wrap: wrap;
         padding: 1em;
         h1 {
             font-weight: 900;

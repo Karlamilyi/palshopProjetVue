@@ -1,5 +1,6 @@
 <template>
     <footer>
+    <div class="footer-container">
         <h1>PALSHOP</h1>
         <div class="separator">.</div>
         <h2>Cliquez, Achetez, Dominez</h2>
@@ -32,6 +33,7 @@
             </div>
         </div>
         <p>© Copyright, tous droits réservés. Site réalisé par LSA.</p>
+    </div>
     </footer> 
     
 </template>
@@ -41,10 +43,19 @@
         margin: 0;
         padding: 0;
         font-family: "Poppins", sans-serif;
+
     }
     footer {
         display: flex;
         flex-wrap: wrap;
+        background-color:#FFEDE1;
+        .footer-container{
+        max-width: 1280px;
+        width: 100%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        }
 
         h1, h2, .separator{
             color: #39487E;
@@ -53,7 +64,7 @@
         }
         .separator{
             background-color: #39487E;
-            font-size: 1px;
+            font-size: 2px;
             margin-bottom: 8px;
         }
         h1{
@@ -88,8 +99,6 @@
             h4 {
                 font-weight: 300;
             }
-            
-
         }
         p {
             width: 100%;
