@@ -2,7 +2,7 @@
     <header>
         <div class="navbar-container">
             <div class="navbar">
-                <h1>PALSHOP</h1>
+                <a href="/"><h1>PALSHOP</h1></a>
                 <ul>
                     <a href='/catalogue'>Catalogue</a>
                     <a href='/panier'>Panier</a>
@@ -34,7 +34,10 @@
         max-width: 1280px;
         display: flex;
         flex-wrap: wrap;
-        padding: 1em;
+        padding: 0.8em;
+        a{
+            text-decoration: none;
+        }
         h1 {
             font-weight: 900;
         }
