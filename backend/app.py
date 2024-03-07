@@ -3,7 +3,7 @@ from middleware import configure_middlewares
 from routes.catalogRoutes import catalogRoutes
 from routes.homeRoutes import homeRoutes
 from routes.loginRoutes import loginRoutes
-
+from routes.contactRoutes import contactRoutes
 
 app = Flask(__name__)
 
@@ -15,6 +15,7 @@ configure_middlewares(app)
 app.register_blueprint(catalogRoutes)
 app.register_blueprint(homeRoutes)
 app.register_blueprint(loginRoutes)
+app.register_blueprint(contactRoutes)
 
 
 if __name__ == "__main__":

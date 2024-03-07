@@ -39,14 +39,13 @@
             <h3>Informations de contact</h3> 
             <h4><strong>Adresse mail : </strong>contact@palshop.fr</h4>
             <h4><strong>Numéro : </strong>01.XX.XX.XX.XX</h4>
-
         </div>
         <div class="separator"></div>
         <div class="contact-form">
             <form @submit.prevent="contact">
-                <input type="email" id="email" required placeholder="Votre adresse mail" />
-                <textarea id="message" name="message" placeholder="Ecrivez votre message ici..." rows="5" cols="33"></textarea>
-                <button type="button" onclick="">Envoyer</button>
+                <input v-model="form.email" id="email" required placeholder="Votre adresse mail" />
+                <textarea id="message" v-model="form.message" placeholder="Ecrivez votre message ici..." rows="5" cols="33"></textarea>
+                <button type="submit">Envoyer</button>
             </form>
         </div>
     </div>
@@ -66,6 +65,10 @@
         data() {
             return {
             items: [],
+            form: {
+                email: '',
+                password: ''
+            }
             };
         },
         mounted() {
@@ -79,14 +82,12 @@
     },
     methods: {
         contact() {
-            let email = document.getElementById("email").value;
-            let message = document.getElementById("message").value;
-            if (email === "" || message === "") {
+            if (this.form.email === "" || this.form.message === "") {
                 alert("Veuillez remplir tous les champs");
             } else {
-                axios.post("http://127.0.0.1/contact", {
-                    email: email,
-                    message: message
+                axios.post("http://127.0.0.1:5000/contact", {
+                    email: this.form.email,
+                    message: this.form.message
                 })
                 .then(response => {
                     console.log("Message envoyé", response.data);
