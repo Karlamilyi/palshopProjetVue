@@ -1,19 +1,22 @@
 <template>
   <div>
     <Header></Header>
+    <h1 style="text-align: center; color: #819ECC;;">CATALOGUE</h1>
+
     <div class="filter-section">
       <input v-model="searchName" type="text" placeholder="Rechercher par nom">
       <br>
       <input v-model="searchPrice" type="range" min="1000" max="10520" id="priceRange" @input="updatePriceValue">
       <span>{{ searchPrice }}</span>
     </div>
-    <div class="catalogue-grid"> <!-- Ajout de la classe catalogue-grid -->
+    <div class="catalogue-grid">
       <div v-for="(item, index) in catalogue" :key="index" class="catalogue-item" v-show="matchesFilters(item)">
         <div class="item">
           <img :src="`../..${item.image}`" :alt="item.name" />
-          <h3>Name: {{ item.name }}</h3> <!-- Ajout de "Name: " avant le nom -->
-          <p>{{ item.price }} <img src="" alt="Panier" /> </p> <!-- Ajout de l'icône de panier à côté du prix -->
-        </div>
+          <h3> {{ item.name }}</h3>
+          <p>{{ item.price }} <font-awesome-icon :icon="['fas', 'shopping-cart']" /></p>
+          
+          </div>
       </div>
     </div>
     <Footer></Footer>
@@ -85,7 +88,7 @@ export default {
 }
 .catalogue-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Limite à 4 éléments par ligne */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 20px;
   padding: 20px;
 }
@@ -98,13 +101,24 @@ export default {
 }
 
 .item img {
-  max-width: 80%; /* Réduit la taille de l'image à 80% */
+  max-width: 80%; 
   height: auto;
-  border-radius: 10px; /* Arrondit les bords de l'image */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Ajoute une ombre à l'image */
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  background-color: #819ECC;
 }
 
 .filter-section {
-  margin: 20px 0;
+  margin: 20px auto;
+  width: 30%; 
+  text-align: center;
+  padding: 20px; 
+}
+
+.filter-section input {
+  width: 80%; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  background-color: white;
 }
 </style>
