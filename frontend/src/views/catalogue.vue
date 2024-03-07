@@ -10,7 +10,7 @@
       <span>{{ searchPrice }}</span>
     </div>
     <div class="catalogue-grid">
-      <router-link v-for="(item, index) in catalogue" :key="index" :to="`/pal/${item.key}`">
+      <router-link v-for="(item, index) in catalogue" :key="index" :to="`/pal/${index}`">
         <div class="catalogue-item" v-show="matchesFilters(item)">
           <div class="item">
             <img :src="`../..${item.image}`" :alt="item.name" />
