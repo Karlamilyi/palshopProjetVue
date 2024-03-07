@@ -6,7 +6,7 @@
                 <ul>
                     <a href='/catalogue'>Catalogue</a>
                     <a href='/panier'>Panier</a>
-                    <a id="connexion" href='/login'>Connexion / Inscription</a>
+                    <a id="connexion" href='/signup'>Connexion / Inscription</a>
                 </ul>
             </div>
         </div>
