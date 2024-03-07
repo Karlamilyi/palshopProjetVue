@@ -28,6 +28,7 @@ def get_one(key):
             "image": data["image"],
             "description": data["description"],
             "suitability": data["suitability"],
+            "types": data["types"],
         }
         return jsonify(data)
     except:
