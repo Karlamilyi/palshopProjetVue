@@ -6,7 +6,8 @@
                 <ul>
                     <a href='/catalogue'>Catalogue</a>
                     <a href='/panier'>Panier</a>
-                    <a id="connexion" href='/signup'>Connexion / Inscription</a>
+                    <a id="connexion" href='/signup' v-if="loggedIn" @click="logout">Déconnexion</a>
+                    <a id="connexion" href='/signup' v-else @click="showLoginModal">Connexion / Inscription</a>
                 </ul>
             </div>
         </div>
@@ -14,6 +15,25 @@
         
     </header>
 </template>
+
+<script>
+    export default {
+    data() {
+        return {
+        loggedIn: sessionStorage.getItem('loggedIn') === 'true'
+        };
+    },
+    methods: {
+        logout() {
+        sessionStorage.removeItem('loggedIn');
+        this.loggedIn = false;
+        },
+        showLoginModal() {
+        }
+    }
+    };
+
+</script>
 
 <style scoped>
     * {
