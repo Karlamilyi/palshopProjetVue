@@ -77,15 +77,27 @@
                     console.error("Erreur lors de la récupération des données:", error);
                 });
     },
+    methods: {
         contact() {
-            axios.post("http://127.0.0.1:5000/contact", this.contactData)
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            if (email === "" || message === "") {
+                alert("Veuillez remplir tous les champs");
+            } else {
+                axios.post("http://127.0.0.1/contact", {
+                    email: email,
+                    message: message
+                })
                 .then(response => {
                     console.log("Message envoyé", response.data);
-                    this.$router.push("/");
+                    alert("Message envoyé");
                 })
                 .catch(error => {
-                    console.error("Erreur lors de l'envoi du message", error);
+                    console.error("Erreur lors de l'envoi du message:", error);
+                    alert("Erreur lors de l'envoi du message");
                 });
+            }
+        }
     }
     };
         

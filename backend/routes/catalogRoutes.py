@@ -18,20 +18,17 @@ def get_all():
     return jsonify(data)
 
 
-@catalogRoutes.route("/pals/<name>", methods=["GET"])
-def get_one(name):
+@catalogRoutes.route("/pals/<key>", methods=["GET"])
+def get_one(key):
     try:
-        data = Pals.find_one({"name": name})
+        data = Pals.find_one({"key": key})
         data = {
-            str(data["key"]): {
-                "name": data["name"],
-                "price": data["price"],
-                "image": data["image"],
-                "description": data["description"],
-                "suitability": data["suitability"],
-                
-            }
+            "name": data["name"],
+            "price": data["price"],
+            "image": data["image"],
+            "description": data["description"],
+            "suitability": data["suitability"],
         }
         return jsonify(data)
     except:
-        return jsonify({"error": "Not found"}), 404
+        return jsonify({"message": "Not found"}), 404
