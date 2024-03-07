@@ -16,7 +16,7 @@ const routes = [
     component: Home,
   },
   {
-    path: '/panier/:id',
+    path: '/panier',
     name: 'Panier',
     component: Panier,
   },

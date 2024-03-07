@@ -20,12 +20,12 @@
     export default {
     data() {
         return {
-        loggedIn: sessionStorage.getItem('loggedIn') === 'true'
+        loggedIn: localStorage.getItem('loggedIn') === 'true'
         };
     },
     methods: {
         logout() {
-        sessionStorage.removeItem('loggedIn');
+        localStorage.removeItem('loggedIn');
         this.loggedIn = false;
         },
         showLoginModal() {

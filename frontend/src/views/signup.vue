@@ -18,9 +18,9 @@
                 <h1>S'inscrire</h1>
                 <form @submit.prevent="signup">
                     <p>Adresse mail</p>
-                    <input type="email" v-model="signupData.email" required/><br>
+                    <input type="email" v-model="signupData.email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required title="Veuillez entrer une adresse e-mail valide"/><br>
                     <p>Mot de passe</p>
-                    <input id="password" v-model="signupData.password" required/><br>
+                    <input id="password" v-model="signupData.password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" required title="Le mot de passe doit contenir au moins 8 caractères avec au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial @$!%?&"/><br>
                     <button type="submit">S'inscrire</button>
                     <p id="verifError" v-if="signupError" class="error-message">{{ signupError }}</p>
                 </form>
@@ -62,7 +62,7 @@
                 axios.post('http://127.0.0.1:5000/login', this.loginData)
                     .then(response => {
                     console.log('Login successful', response.data);
-                    sessionStorage.setItem('loggedIn', true);
+                    localStorage.setItem('loggedIn', true);
                     this.$router.push('/');
                     })
                     .catch(error => {
@@ -80,7 +80,7 @@
                 axios.post('http://127.0.0.1:5000/register', this.signupData)
                     .then(response => {
                     console.log('Signup successful', response.data);
-                    this.login();
+                    this.signupError = 'Inscription réussie';
                     })
                     .catch(error => {
                     console.error('Erreur lors de l\'inscription', error);
