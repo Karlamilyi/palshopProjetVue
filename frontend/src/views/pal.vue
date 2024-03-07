@@ -66,16 +66,16 @@ export default {
 
 .pal-details {
   display: flex;
-  justify-content: flex-end; /* Déplace le contenu vers la droite */
-  text-align: left; /* Ajuste le texte à gauche */
+  justify-content: flex-end; 
+  text-align: left; 
   margin-top: 10px;
   margin-bottom: 20px;
-  width: 70%; /* Ajuste la largeur du contenu */
+  width: 70%; 
 }
 
 .pal-info {
   margin-right: 20px;
-  width: 30%; /* Ajuste la largeur du contenu */
+  width: 30%; 
   margin-top: 10%;
   margin-left: 10px;
 }
