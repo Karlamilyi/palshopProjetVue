@@ -30,31 +30,29 @@
     },
     data() {
       return {
-        palData: []
+        pal: null
       };
     },
-    created() {
-      const palKey = this.$route.params.key;
-
-      axios.get(`http://127.0.0.1:5000/pals/${palKey}`)
-        .then(response => {
-          console.log('Données du PAL récupérées avec succès', response.data);
-          this.palData = response.data;
-          console.log(response.data);
-        })
-        .catch(error => {
-          console.error('Erreur lors de la récupération des données du PAL', error);
-        });
-    }
-  }
+    mounted() {
+        const palId = this.$route.params.id;
+        axios.get('http://127.0.0.1:5000/pals')
+  .then(response => {
+    const key = palId; 
+    this.pal = response.data[key];
+  })
+  .catch(error => {
+    console.error('Une erreur s\'est produite lors de la récupération des données du Pal', error);
+  });
+    },
+  };
   </script>
   
   <style scoped>
-    * {
-      margin: 0;
-      padding: 0;
-      background-color: #FFEDE1;
-    }
+  * {
+  margin: 0;
+  padding: 0;
+  background-color: #FFEDE1;
+}
   
   .pal-page {
     min-height: 100%;
