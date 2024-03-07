@@ -10,14 +10,15 @@
       <span>{{ searchPrice }}</span>
     </div>
     <div class="catalogue-grid">
-      <div v-for="(item, index) in catalogue" :key="index" class="catalogue-item" v-show="matchesFilters(item)">
-        <div class="item">
-          <img :src="`../..${item.image}`" :alt="item.name" />
-          <h3> {{ item.name }}</h3>
-          <p>{{ item.price }} <font-awesome-icon :icon="['fas', 'shopping-cart']" /></p>
-          
+      <router-link v-for="(item, index) in catalogue" :key="index" :to="`/pal/${item.key}`">
+        <div class="catalogue-item" v-show="matchesFilters(item)">
+          <div class="item">
+            <img :src="`../..${item.image}`" :alt="item.name" />
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.price }} <font-awesome-icon :icon="['fas', 'shopping-cart']" /></p>
           </div>
-      </div>
+        </div>
+      </router-link>
     </div>
     <Footer></Footer>
   </div>
