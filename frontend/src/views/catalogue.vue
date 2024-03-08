@@ -5,7 +5,7 @@
     <div class="filter-section">
       <input v-model="searchName" type="text" placeholder="Rechercher par nom">
     </div>
-    <h2>NOS PAL DISPONIBLE</h2>
+    <h2>NOS PALS DISPONIBLES</h2>
     <div class="catalogue-grid">
       <router-link v-for="(item, index) in catalogue" :key="index" :to="`/pal/${index}`" class="catalogue-item" v-show="matchesFilters(item)">
         <div class="item">
