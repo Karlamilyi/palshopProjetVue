@@ -41,6 +41,7 @@
         padding: 0;
         font-family: "Poppins", sans-serif;
         color: white;
+        background-color: #39487E
     }
     .navbar-container {
         display: flex;
@@ -76,7 +77,7 @@
             }
 
             a:hover{
-                color: #FFEDE1;
+                color: #FFF;
                 transform: scale(1.1);
                 text-decoration: underline;
                 font-weight: 400;

@@ -114,18 +114,19 @@
                 border-radius: 10px;
             }
             button {
+                background-color: white;
                 width: 10%;
                 margin: auto 0;
-                border: 3px solid #39487E;
+                border: 3px solid #f76d6d;
                 border-radius: 20px;
                 padding: .3em;
-                color: #39487E;
+                color: #f76d6d;
                 font-size: 15px;
                 transition-duration: .3s;
             }
             button:hover {
                 color: white;
-                background-color: #39487E;
+                background-color: #f76d6d;
             }
             separator {
                 width: 80%;

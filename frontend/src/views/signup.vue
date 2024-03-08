@@ -5,9 +5,9 @@
             <div class="login-form">
                 <h1>Se connecter</h1>
                 <form @submit.prevent="login">
-                    <label for="email">Adresse mail</label>
+                    <p>Adresse mail</p>
                     <input type="email" id="email" v-model="loginData.email" required/><br>
-                    <label for="password">Mot de passe</label>
+                    <p>Mot de passe</p>
                     <input id="password" type="password" v-model="loginData.password" required/><br>
                     <button type="submit">Se connecter</button>
                     <p id="verifError" v-if="loginError" class="error-message">{{ loginError }}</p>
@@ -17,9 +17,9 @@
             <div class="signup-form">
                 <h1>S'inscrire</h1>
                 <form @submit.prevent="signup">
-                    <label for="signupEmail">Adresse mail</label>
+                    <p>Adresse mail</p>
                     <input type="email" id="signupEmail" v-model="signupData.email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required title="Veuillez entrer une adresse e-mail valide"/><br>
-                    <label for="signupPassword">Mot de passe</label>
+                    <p>Mot de passe</p>
                     <input id="signupPassword" type="password" v-model="signupData.password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" required title="Le mot de passe doit contenir au moins 8 caractères avec au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial @$!%?&"/><br>
                     <button type="submit">S'inscrire</button>
                     <p id="verifError" v-if="signupError" class="error-message">{{ signupError }}</p>
@@ -100,6 +100,7 @@
         margin: 0;
         padding: 0;
         font-family: "Poppins", sans-serif;
+        background-color: #FFEDE1;
     }
     .loginpage-container {
         background-color: #FFEDE1;
@@ -129,7 +130,7 @@
                 }
                 p {
                     width: 50%;
-                    font-weight: 700;
+                    font-weight: 500;
                     font-size: 20px;
                     margin: 30px 0 0 0;
                 }
@@ -140,6 +141,7 @@
                     border: 3px solid #39487E;
                     border-radius: 10px;
                     font-size: 15px;
+                    background-color: white;
                 }
                 button {
                     margin-top: 20px;
