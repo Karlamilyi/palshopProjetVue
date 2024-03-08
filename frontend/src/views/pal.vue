@@ -5,7 +5,7 @@
       <h1>Plus d'infos sur {{ pal.name }}</h1>
       <div class="pal-details">
         <div class="pal-info">
-          <h2><strong>Nom :</strong> {{ pal.name }}</h2>
+          <p><strong>Nom :</strong> {{ pal.name }}</p>
           <p><strong>Prix :</strong> {{ pal.price }}</p>
           <p><strong>Description :</strong> {{ pal.description }}</p>
           <p><strong>Utilité :</strong></p>
@@ -14,13 +14,14 @@
           </div>
           <p><strong>Type : </strong></p>
           <div class="types">
-          <img v-for="type in pal.types" :key="type" :src="`/images/elements/${type}.png`" :alt="type" class="type-icon">
+            <img v-for="type in pal.types" :key="type" :src="`/images/elements/${type}.png`" :alt="type" class="type-icon">
           </div>
         </div>          
         <div class="pal-image">
           <img :src="pal.image" :alt="pal.name" style="display: block; margin: 0 auto;">
         </div>
       </div>
+      <button @click="addToCart">Ajouter au panier</button>
     </div>
     <Footer></Footer>
   </div>
@@ -52,6 +53,22 @@ export default {
         console.error('Une erreur s\'est produite lors de la récupération des données du Pal', error);
       });
   },
+  methods: {
+    addToCart() {
+      if (this.pal) {
+        const cartItem = {
+          id: this.pal.key,
+          name: this.pal.name,
+          price: this.pal.price,
+          image: this.pal.image
+        };
+        let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+        cartItems.push(cartItem);
+        sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+        this.$router.push('/panier');
+      }
+    }
+  }
 };
 </script>
   
@@ -76,6 +93,19 @@ h1 {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  button {
+    padding: 1em;
+    border-radius: 20px;
+    border: 2px solid #819ECC;
+    color: #819ECC;
+    font-weight: 500;
+    width: 30%;
+    transition-duration: .3s;
+  }
+  button:hover{
+    background-color: #819ECC;
+    color: white;
+  }
 }
 
 .pal-details {
@@ -106,6 +136,9 @@ h1 {
       margin-right: 5px;
     }
   }
+  .type-icon{
+    margin-right: 5px;
+  }
 }
 
 .pal-image {
@@ -117,5 +150,19 @@ img {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #819ECC;
+}
+
+@media only screen and (max-width: 1279px) {
+  .pal-page {
+    h1 {
+      font-size: 30px;
+    }
+  }
+  .pal-info {
+    p {
+      width: 90%;
+      font-size: 14px;
+    }
+  }
 }
 </style>
