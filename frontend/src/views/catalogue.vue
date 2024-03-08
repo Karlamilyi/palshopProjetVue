@@ -42,7 +42,7 @@ export default {
     };
   },
   mounted() {
-    axios.get('http://127.0.0.1:5000/pals')
+    axios.get('https://palshopprojetvue.onrender.com/pals')
       .then(response => {
         this.catalogue = response.data;
       })

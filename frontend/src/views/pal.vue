@@ -37,7 +37,7 @@ export default {
   },
   mounted() {
     const palId = this.$route.params.id;
-    axios.get('http://127.0.0.1:5000/pals/' + palId) 
+    axios.get('https://palshopprojetvue.onrender.com/pals/' + palId) 
       .then(response => {
         this.pal = response.data; 
       })
