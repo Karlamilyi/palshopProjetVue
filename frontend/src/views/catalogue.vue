@@ -11,7 +11,7 @@
         <div class="item">
           <img :src="`../..${item.image}`" :alt="item.name" />
           <h3>{{ item.name }}</h3>
-          <p>{{ item.price }} <font-awesome-icon :icon="['fas', 'shopping-cart']" /></p>
+          <p>{{ item.price }} <img src="../../public/images/items/gold-coin.png" alt="coin" style="width: 25px; height: 25px;"></p>
         </div>
       </router-link>
     </div>
@@ -131,6 +131,10 @@ export default {
   .item img:hover {
     box-shadow: 1px 5px 20px rgb(0, 0, 0);
   }    
+  .item p img {
+    background-color: transparent;
+    box-shadow: 0 0 0 0;
+  }
 
 
 
