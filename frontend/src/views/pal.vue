@@ -10,11 +10,11 @@
           <p><strong>Description :</strong> {{ pal.description }}</p>
           <p><strong>Utilité :</strong></p>
           <div class="suitability-icons">
-            <img v-for="item in pal.suitability" :key="item.type" :src="item.image" :alt="item.type" class="suitability-icon">
+            <img v-for="item in pal.suitability" :key="item.type" :src="item.image" :alt="item.type" class="suitability-icon" :title="item.type">
           </div>
           <p><strong>Type : </strong></p>
           <div class="types">
-            <img v-for="type in pal.types" :key="type" :src="`/images/elements/${type}.png`" :alt="type" class="type-icon">
+            <img v-for="type in pal.types" :key="type" :src="`/images/elements/${type}.png`" :alt="type" class="type-icon" :title="type">
           </div>
         </div>          
         <div class="pal-image">
