@@ -22,6 +22,7 @@
         </div>
       </div>
       <button @click="addToCart">Ajouter au panier</button>
+      <p v-if="addedToCartMessage" class="added-to-cart-message">{{ addedToCartMessage }}</p>
     </div>
     <Footer></Footer>
   </div>
@@ -40,7 +41,8 @@ export default {
   },
   data() {
     return {
-      pal: null
+      pal: null,
+      addedToCartMessage: ''
     };
   },
   mounted() {
@@ -65,7 +67,8 @@ export default {
         let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
         cartItems.push(cartItem);
         sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
-        this.$router.push('/panier');
+        this.addedToCartMessage = 'Article ajouté au panier';
+
       }
     }
   }
