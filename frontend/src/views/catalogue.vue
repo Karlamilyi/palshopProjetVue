@@ -1,14 +1,13 @@
 <template>
   <div>
     <Header></Header>
-    <h1 style="text-align: center; color: #819ECC;;">CATALOGUE</h1>
+    <h1>CATALOGUE</h1>
 
     <div class="filter-section">
       <input v-model="searchName" type="text" placeholder="Rechercher par nom">
-      <br>
-      <input v-model="searchPrice" type="range" min="1000" max="10520" id="priceRange" @input="updatePriceValue">
-      <span>{{ searchPrice }}</span>
     </div>
+
+    <h2>Nos pals disponibles</h2>
     <div class="catalogue-grid">
       <router-link v-for="(item, index) in catalogue" :key="index" :to="`/pal/${index}`">
         <div class="catalogue-item" v-show="matchesFilters(item)">
@@ -82,44 +81,72 @@ export default {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  background-color: #FFEDE1;
-}
-.catalogue-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px;
-  padding: 20px;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    background-color: #FFEDE1;
+  }
+  h1 {
+    text-align: center; 
+    color: #39487E; 
+    font-size: 60px;
+    margin-top: 20px;
+  }
+  h2 {
+    color: #39487E;
+    font-size: 40px;
+    margin-left: 50px;
+  }
+  
+  .filter-section {
+    input {
+      border: 3px solid #819ECC
+    }
+  }
+  .catalogue-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 20px;
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      color: #39487E;
+    }
+  }
 
-.item {
-  text-align: center;
-  padding: 10px;
-  border: none;
-  max-width: 100%;
-}
+  .item {
+    text-align: center;
+    padding: 10px;
+    border: none;
+    max-width: 100%;
+  }
 
-.item img {
-  max-width: 80%; 
-  height: auto;
-  border-radius: 10px; 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
-  background-color: #819ECC;
-}
+  .item img {
+    max-width: 80%; 
+    height: auto;
+    border-radius: 10px; 
+    box-shadow: 1px 5px 20px rgb(72, 72, 72);
+    transition-duration: .3s;    
+    background-color: #819ECC;
+  }
+  .item img:hover {
+    box-shadow: 1px 5px 20px rgb(0, 0, 0);
+  }    
 
-.filter-section {
-  margin: 20px auto;
-  width: 30%; 
-  text-align: center;
-  padding: 20px; 
-}
 
-.filter-section input {
-  width: 80%; 
-  padding: 10px; 
-  margin-bottom: 10px; 
-  background-color: white;
-}
+
+  .filter-section {
+    margin: 20px auto;
+    width: 30%; 
+    text-align: center;
+    padding: 20px; 
+  }
+
+  .filter-section input {
+    width: 80%; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    background-color: white;
+  }
 </style>

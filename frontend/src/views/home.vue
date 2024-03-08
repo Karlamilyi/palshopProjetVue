@@ -161,7 +161,12 @@
                 background-color: #819ECC;
                 border-radius: 10px;
                 width: 100%;
-                box-shadow: 1px 5px 20px black;
+                box-shadow: 1px 5px 20px rgb(72, 72, 72);
+                transition-duration: .3s;
+            }
+            img:hover{
+                box-shadow: 1px 5px 20px rgb(0, 0, 0);
+
             }
         }
         #catalogue-button {
