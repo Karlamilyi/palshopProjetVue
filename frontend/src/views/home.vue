@@ -8,10 +8,12 @@
     <div class="selection-container">
         <div class="selection">
             <h2>Les pals du moment</h2>
-            <div v-for="(item, key) in items" :key="key">
-                <img :src="item.image"/>
-            </div>
-            <a href="/Catalogue">En découvrir plus</a>
+            <router-link v-for="(item, key) in items" :key="key" :to="`/pal/${key}`">
+                <div>
+                    <img :src="item.image"/>
+                </div>
+            </router-link>
+            <a id="catalogue-button" href="/Catalogue">En découvrir plus</a>
         </div>
     </div>
 
@@ -141,27 +143,29 @@
         padding-bottom: 50px;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
         margin: auto;
-        justify-content: space-around;
         h2 {
             width: 100%;
             font-size: 45px;
             color: #39487E;
             padding: 1em;
         }
+        a{
+            width: 28%;
+        }
         div{
-            width: 30%;
-            text-align: center;
+            width: 100%;
             margin-bottom: 30px;
             img {
                 background-color: #819ECC;
                 border-radius: 10px;
-                width: 60%;
+                width: 100%;
                 box-shadow: 1px 5px 20px black;
             }
         }
-        a {
-            width: 20%;
+        #catalogue-button {
+            width: 30%;
             text-align: center;
             text-decoration: none;
             padding: .7em 0;
@@ -172,7 +176,7 @@
             margin: auto;
             transition-duration: .3s;
         }
-        a:hover {
+        #catalogue-button:hover {
             color: #39487E;
             background-color: white;
         }
@@ -324,5 +328,89 @@
             }
         }
     }
+    @media only screen and (max-width: 1279px) {
+        .presentation-container {
+            display: none;
+        }
+        .selection-container {
+            .selection {
+                max-width: 500px;
+                h2 {
+                    font-size: 25px;
+                }
+                img {
+                    width: 90%;
+                }
+                a {
+                    width: 30%;
+                }
+                #catalogue-button {
+                    width: 50%;
+                }
+            }
+        }
+        .moreinfos-container {
+            .moreinfos{
+                max-width: 500px;
+                h2 {
+                    font-size: 16px;
+                }
+                .leftside {
+                    h3 {
+                        font-size: 12px;
+                        width: 100%;
+                        margin-left: 0;
+                    }
+                    p {
+                        margin-left: 0;
+                        font-size: 9px;
+                        width: 100%;
+                    }
+                }
+                img {
+                    width: 160px;
+                }
+            }
+        }
+        .catalogue-button-container {
+            .catalogue-button {
+                max-width: 300px;
+                h2 {
+                    font-size: 14px;
+                    margin-right: 0;
+                }
+                a {
+                    margin-top: 15px;
+                    font-size: 12px;
+                }
+            }
+        }
+        .contact-form-container {
+            h2 {
+                font-size: 12px;
+            }
+            .contact-infos {
+                max-width: 250px;
+                h3 {
+                    width: 90%;
+                    font-size: 12px;
+                    margin-left: 10px;
+                }
+                h4 {
+                    margin-left: 10px;
+                    font-size: 10px;
+                }
+            }
+            .contact-form {
+                max-width: 250px;
+                input, textarea {
+                    padding: 0.3em;
+                }
+                button {
+                    width: 70%;
+                }
+            }
+        }
 
+      }
 </style>
