@@ -8,23 +8,40 @@ A site for buying pals.
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [License](#license)
 
 ## Installation
 
-Instructions on how to install and set up the project.
+Instructions on how to install the project.
+
+```bash
+# Clone the repository
+git clone https://github.com/Beuhnnyto/palshopProjetVue.git
+
+# Change the working directory
+cd palshopProjetVue
+
+# Install the dependencies
+npm install
+
+```
 
 ## Usage
 
-Instructions on how to use the project.
+This project is a Vue.js application. It is a simple e-commerce site for buying pals.
+The API is hosted on Render and can be accessed [here](https://palshopprojetvue.onrender.com).
 
-## Contributing
+```bash
+# Start the development server
+npm run dev
+```
 
-Guidelines on how to contribute to the project.
+
+
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
