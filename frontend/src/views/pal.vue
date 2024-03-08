@@ -1,18 +1,18 @@
 <template>
   <div>
     <Header></Header>
-    <h1 style="text-align: center; color: #819ECC;">Détails du Pal</h1>
+    <h1>Plus d'infos sur {{ pal.name }}</h1>
     <div v-if="pal" class="pal-page">
       <div class="pal-details">
         <div class="pal-info">
-          <h2>Nom: {{ pal.name }}</h2>
-          <p>Prix: {{ pal.price }}</p>
-          <p>Description: {{ pal.description }}</p>
-          <p>Utilité:</p>
+          <h2><strong>Nom :</strong> {{ pal.name }}</h2>
+          <p><strong>Prix :</strong> {{ pal.price }}</p>
+          <p><strong>Description :</strong> {{ pal.description }}</p>
+          <p><strong>Utilité :</strong></p>
           <div class="suitability-icons">
             <img v-for="item in pal.suitability" :key="item.type" :src="item.image" :alt="item.type" class="suitability-icon">
           </div>
-          <p>Type:</p>
+          <p><strong>Type : </strong></p>
           <div classe="types">
           <img v-for="type in pal.types" :key="type" :src="`/images/elements/${type}.png`" :alt="type" class="type-icon">
           </div>
@@ -62,6 +62,13 @@ export default {
   background-color: #FFEDE1;
 }
 
+h1 {
+  text-align: center; 
+  color: #39487E; 
+  font-size: 60px;
+  margin-top: 20px;
+}
+
 .pal-page {
   min-height: 100%;
   display: flex;
@@ -82,9 +89,23 @@ export default {
 
 .pal-info {
   margin-right: 20px;
-  width: 30%; 
+  width: 45%; 
   margin-top: 10%;
   margin-left: 10px;
+  h2 {
+    color: #39487E;
+    font-size: 30px;
+    font-weight: 400;
+  }
+  p {
+    color: #39487E;
+    font-size: 20px;
+  }
+  .suitability-icons {
+    img {
+      margin-right: 5px;
+    }
+  }
 }
 
 .pal-image {

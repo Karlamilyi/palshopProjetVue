@@ -149,4 +149,17 @@ export default {
     margin-bottom: 10px; 
     background-color: white;
   }
+
+  @media only screen and (max-width: 1279px) {
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    .catalogue-grid {
+      grid-template-columns: repeat(2, 1fr); 
+
+    }
+  }
 </style>
