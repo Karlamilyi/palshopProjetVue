@@ -174,6 +174,18 @@
                 width: 45%;
             }
         }
+
+        @media screen and (max-width: 1279px) {
+            .loginpage {
+                .login-form, .signup-form {
+                    width: 100%;
+                }
+                .separator {
+                    display: none;
+                }
+            }
+            
+        }
     }
     
 </style>

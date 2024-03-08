@@ -151,4 +151,14 @@ export default {
     margin-bottom: 10px; 
     background-color: white;
   }
+  @media only screen and (max-width: 1279px) {
+    .catalogue-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .filter-section {
+    width: 50%;
+  }
+
 </style>

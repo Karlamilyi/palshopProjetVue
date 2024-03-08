@@ -128,6 +128,9 @@
             text-align: center;
             font-size: 40px;
         }
+        h1, h2, strong {
+            background-color: transparent;
+        }
         h1 {
             font-weight: 800;
         }
@@ -199,20 +202,27 @@
             padding: 1.5em;
             
             h2 {
+                background-color: transparent;
+
                 text-align: center;
                 width: 100%;
                 font-size: 40px;
                 padding: .5em;
             }
             .leftside {
+                background-color: transparent;
                 width: 50%;
                 h3 {
+                background-color: transparent;
+
                     margin-left: 30px;
                     font-size: 30px;
                     font-style: italic;
                     font-weight: 200;
                 }
                 p {
+                background-color: transparent;
+
                     margin-top: 10px;
                     margin-left: 55px;
                     font-size: 24px;
@@ -242,6 +252,7 @@
             margin: auto;
             justify-content: center;
             h2 {
+                background-color: transparent;
                 color: white;
                 font-size: 35px;
                 font-weight: 500;
@@ -273,17 +284,23 @@
         background-color: #39487E;
         color: white;
         h2{
+            background-color: transparent;
             text-align: center;
             font-size: 30px;
             width: 100%;
         }
         .contact-infos{
+            background-color: transparent;
             max-width: 600px;
             width: 50%;
             display: flex;
             flex-wrap: wrap;
             margin: auto 0;
+            strong {
+                background-color: transparent;
+            }
             h3{
+                background-color: transparent;
                 width: 70%;
                 font-size: 25px;
                 font-weight: 600;
@@ -291,6 +308,7 @@
                 margin-bottom: 15px;
             }
             h4 {
+                background-color: transparent;
                 margin-bottom: 15px;
                 padding: 0.2em;
                 width: 60%;
@@ -306,31 +324,36 @@
 
         }
         .contact-form{
+            background-color: transparent;
             max-width: 600px;
             width: 45%;
             display: flex;
             flex-wrap: wrap;
-            input, textarea {
+            form {
+                background-color: #39487E;
+                input, textarea {
                 width: 80%;
                 margin: 1em;
                 padding: .5em;
                 border-radius: 10px;
                 border: 3px solid #819ECC;
+                }
+                button {
+                    width: 30%;
+                    margin: 1em;
+                    padding: .5em;
+                    border-radius: 30px;
+                    border: 3px solid #819ECC;
+                    background-color: white;
+                    color: #819ECC;
+                    transition-duration: .3s;
+                }
+                button:hover {
+                    color: white;
+                    background-color: #819ECC;
+                }
             }
-            button {
-                width: 30%;
-                margin: 1em;
-                padding: .5em;
-                border-radius: 30px;
-                border: 3px solid #819ECC;
-                background-color: white;
-                color: #819ECC;
-                transition-duration: .3s;
-            }
-            button:hover {
-                color: white;
-                background-color: #819ECC;
-            }
+            
         }
     }
     @media only screen and (max-width: 1279px) {
@@ -411,9 +434,12 @@
                 input, textarea {
                     padding: 0.3em;
                 }
-                button {
-                    width: 70%;
+                form {
+                    button {
+                        width: 70%;
+                    }
                 }
+
             }
         }
 
