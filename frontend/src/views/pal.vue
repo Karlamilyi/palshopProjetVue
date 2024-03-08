@@ -8,8 +8,15 @@
           <h2>Nom: {{ pal.name }}</h2>
           <p>Prix: {{ pal.price }}</p>
           <p>Description: {{ pal.description }}</p>
-          <p>Utilité: {{ pal.suitability }}</p>
-        </div>
+          <p>Utilité:</p>
+          <div class="suitability-icons">
+            <img v-for="item in pal.suitability" :key="item.type" :src="item.image" :alt="item.type" class="suitability-icon">
+          </div>
+          <p>Type:</p>
+          <div classe="types">
+          <img v-for="type in pal.types" :key="type" :src="`/images/elements/${type}.png`" :alt="type" class="type-icon">
+          </div>
+        </div>          
         <div class="pal-image">
           <img :src="pal.image" :alt="pal.name" style="display: block; margin: 0 auto;">
         </div>
@@ -37,7 +44,7 @@ export default {
   },
   mounted() {
     const palId = this.$route.params.id;
-    axios.get('http://127.0.0.1:5000/pals/' + palId) 
+    axios.get('https://palshopprojetvue.onrender.com/pals/' + palId) 
       .then(response => {
         this.pal = response.data; 
       })

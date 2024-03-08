@@ -59,7 +59,7 @@
         },
         methods: {
             login() {
-                axios.post('http://127.0.0.1:5000/login', this.loginData)
+                axios.post('https://palshopprojetvue.onrender.com/login', this.loginData)
                     .then(response => {
                     console.log('Login successful', response.data);
                     localStorage.setItem('loggedIn', true);
@@ -77,7 +77,7 @@
                     });
             },
             signup() {
-                axios.post('http://127.0.0.1:5000/register', this.signupData)
+                axios.post('https://palshopprojetvue.onrender.com/register', this.signupData)
                     .then(response => {
                     console.log('Signup successful', response.data);
                     this.signupError = 'Inscription réussie';
