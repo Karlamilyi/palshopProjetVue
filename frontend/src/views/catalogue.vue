@@ -2,22 +2,18 @@
   <div>
     <Header></Header>
     <h1>CATALOGUE</h1>
-
     <div class="filter-section">
       <input v-model="searchName" type="text" placeholder="Rechercher par nom">
     </div>
-
-    <h2>Nos pals disponibles</h2>
+    <h2>NOS PAL DIPONIBLE</h2>
     <div class="catalogue-grid">
-      <router-link v-for="(item, index) in catalogue" :key="index" :to="`/pal/${index}`">
-        <div class="catalogue-item" v-show="matchesFilters(item)">
-          <div class="item">
-            <img :src="`../..${item.image}`" :alt="item.name" />
-            <h3>{{ item.name }}</h3>
-            <p>{{ item.price }} <font-awesome-icon :icon="['fas', 'shopping-cart']" /></p>
-          </div>
+      <div v-for="(item, index) in catalogue" :key="index" class="catalogue-item" v-show="matchesFilters(item)">
+        <div class="item">
+          <img :src="`../..${item.image}`" :alt="item.name" />
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.price }} <font-awesome-icon :icon="['fas', 'shopping-cart']" /></p>
         </div>
-      </router-link>
+      </div>
     </div>
     <Footer></Footer>
   </div>
@@ -148,18 +144,5 @@ export default {
     padding: 10px; 
     margin-bottom: 10px; 
     background-color: white;
-  }
-
-  @media only screen and (max-width: 1279px) {
-    h1 {
-      font-size: 30px;
-    }
-    h2 {
-      font-size: 20px;
-    }
-    .catalogue-grid {
-      grid-template-columns: repeat(2, 1fr); 
-
-    }
   }
 </style>
