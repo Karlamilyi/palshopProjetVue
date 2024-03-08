@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header></Header>
-    <h1>Plus d'infos sur {{ pal.name }}</h1>
     <div v-if="pal" class="pal-page">
+      <h1>Plus d'infos sur {{ pal.name }}</h1>
       <div class="pal-details">
         <div class="pal-info">
           <h2><strong>Nom :</strong> {{ pal.name }}</h2>
@@ -13,7 +13,7 @@
             <img v-for="item in pal.suitability" :key="item.type" :src="item.image" :alt="item.type" class="suitability-icon">
           </div>
           <p><strong>Type : </strong></p>
-          <div classe="types">
+          <div class="types">
           <img v-for="type in pal.types" :key="type" :src="`/images/elements/${type}.png`" :alt="type" class="type-icon">
           </div>
         </div>          
