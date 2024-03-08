@@ -74,9 +74,16 @@
             #connexion {
                 margin-left: 500px;
             }
+
             a:hover{
-                transform: scale(1.05);
-                font-weight: 300;
+                color: #FFEDE1;
+                transform: scale(1.1);
+                text-decoration: underline;
+                font-weight: 400;
+                /* ease in n out with a cubic bezier*/
+                transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
+
+
             }
         }
     }
