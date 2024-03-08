@@ -5,10 +5,10 @@
             <div class="login-form">
                 <h1>Se connecter</h1>
                 <form @submit.prevent="login">
-                    <p>Adresse mail</p>
-                    <input type="email" v-model="loginData.email" required/><br>
-                    <p>Mot de passe</p>
-                    <input id="password" v-model="loginData.password" required/><br>
+                    <label for="email">Adresse mail</label>
+                    <input type="email" id="email" v-model="loginData.email" required/><br>
+                    <label for="password">Mot de passe</label>
+                    <input id="password" type="password" v-model="loginData.password" required/><br>
                     <button type="submit">Se connecter</button>
                     <p id="verifError" v-if="loginError" class="error-message">{{ loginError }}</p>
                 </form>
@@ -17,10 +17,10 @@
             <div class="signup-form">
                 <h1>S'inscrire</h1>
                 <form @submit.prevent="signup">
-                    <p>Adresse mail</p>
-                    <input type="email" v-model="signupData.email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required title="Veuillez entrer une adresse e-mail valide"/><br>
-                    <p>Mot de passe</p>
-                    <input id="password" v-model="signupData.password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" required title="Le mot de passe doit contenir au moins 8 caractères avec au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial @$!%?&"/><br>
+                    <label for="signupEmail">Adresse mail</label>
+                    <input type="email" id="signupEmail" v-model="signupData.email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required title="Veuillez entrer une adresse e-mail valide"/><br>
+                    <label for="signupPassword">Mot de passe</label>
+                    <input id="signupPassword" type="password" v-model="signupData.password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" required title="Le mot de passe doit contenir au moins 8 caractères avec au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial @$!%?&"/><br>
                     <button type="submit">S'inscrire</button>
                     <p id="verifError" v-if="signupError" class="error-message">{{ signupError }}</p>
                 </form>

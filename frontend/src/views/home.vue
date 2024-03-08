@@ -10,7 +10,7 @@
             <h2>Les pals du moment</h2>
             <router-link v-for="(item, key) in items" :key="key" :to="`/pal/${key}`">
                 <div>
-                    <img :src="item.image"/>
+                    <img :src="item.image" :alt="item.name"/>
                 </div>
             </router-link>
             <a id="catalogue-button" href="/Catalogue">En découvrir plus</a>
