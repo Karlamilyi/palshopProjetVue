@@ -70,7 +70,6 @@
                 margin: 0 50px 0 20px;
                 transition: ease-in-out;
                 transition-duration: 0.3s;
-
             }
             #connexion {
                 margin-left: 500px;
@@ -80,5 +79,25 @@
                 font-weight: 300;
             }
         }
+    }
+
+    @media only screen and (max-width: 1279px) {
+        .navbar-container {
+            .navbar {
+                
+                ul {
+                    margin: 0;
+                    a {
+                        margin: 10px;
+                   }
+                    #connexion {
+                        margin-left: 0px;
+                    }
+                }
+            }
+        }
+        
+        
+    
     }
 </style>
