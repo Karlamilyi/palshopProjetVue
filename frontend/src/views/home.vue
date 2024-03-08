@@ -324,5 +324,88 @@
             }
         }
     }
+    @media only screen and (max-width: 1279px) {
+        .presentation-container {
+            display: none;
+        }
+        .selection-container {
+            .selection {
+                max-width: 500px;
+                h2 {
+                    font-size: 25px;
+                }
+                img {
+                    width: 90%;
+                }
+                a {
+                    width: 60%;
+                }
+            }
+        }
+        .moreinfos-container {
+            .moreinfos{
+                max-width: 500px;
+                h2 {
+                    font-size: 16px;
+                }
+                .leftside {
+                    h3 {
+                        font-size: 12px;
+                        width: 100%;
+                        margin-left: 0;
+                    }
+                    p {
+                        margin-left: 0;
+                        font-size: 9px;
+                        width: 100%;
+                    }
+                }
+                img {
+                    width: 160px;
+                }
+            }
+        }
+        .catalogue-button-container {
+            .catalogue-button {
+                max-width: 300px;
+                h2 {
+                    font-size: 14px;
+                    margin-right: 0;
+                }
+                a {
+                    margin-top: 15px;
+                    font-size: 12px;
+                }
+            }
+        }
+        .contact-form-container {
+            h2 {
+                font-size: 12px;
+            }
+            .contact-infos {
+                max-width: 250px;
+                h3 {
+                    width: 90%;
+                    font-size: 12px;
+                    margin-left: 10px;
+                }
+                h4 {
+                    margin-left: 10px;
+                    font-size: 10px;
+                }
+            }
+            .contact-form {
+                max-width: 250px;
+                input, textarea {
+                    padding: 0.3em;
+                }
+                button {
+                    width: 70%;
+                }
+            }
+        }
+
+      }
+      
 
 </style>
